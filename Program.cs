@@ -7,6 +7,15 @@ namespace RectangleApp
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowLocalhost3000", policy =>
+                {
+                    policy.WithOrigins("http://localhost:3000")
+                          .AllowAnyMethod()
+                          .AllowAnyHeader();
+                });
+            });
             builder.Services.AddControllers();
             builder.Services.AddSingleton<RectangleValidator>();
             builder.Services.AddEndpointsApiExplorer();
@@ -14,6 +23,7 @@ namespace RectangleApp
 
             var app = builder.Build();
 
+            app.UseCors("AllowLocalhost3000");
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {

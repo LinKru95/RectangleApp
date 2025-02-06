@@ -54,12 +54,11 @@ namespace RectangleApp.Controllers
             {
                 string jsonString = JsonSerializer.Serialize(rectangle);
                 await System.IO.File.WriteAllTextAsync(FilePath, jsonString);
-
-                return Ok("Rectangle dimensions saved.");
+                return Ok(new { message = "Rectangle dimensions saved." });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
+                return StatusCode(500, new { message = $"Internal server error: {ex.Message}" });
             }
         }
     }
