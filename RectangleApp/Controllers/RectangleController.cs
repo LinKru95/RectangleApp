@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Business.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using RectangleApp.Business;
 using RectangleApp.Models;
 using System.Text.Json;
@@ -10,9 +11,9 @@ namespace RectangleApp.Controllers
     public class RectangleController : ControllerBase
     {
         private const string FilePath = "Jsons/rectangle.json";
-        private readonly RectangleValidator _rectangleValidator;
+        private readonly IRectangleValidator _rectangleValidator;
 
-        public RectangleController(RectangleValidator rectangleValidator)
+        public RectangleController(IRectangleValidator rectangleValidator)
         {
             _rectangleValidator = rectangleValidator;
         }
@@ -54,6 +55,7 @@ namespace RectangleApp.Controllers
             {
                 string jsonString = JsonSerializer.Serialize(rectangle);
                 await System.IO.File.WriteAllTextAsync(FilePath, jsonString);
+
                 return Ok(new { message = "Rectangle dimensions saved." });
             }
             catch (Exception ex)

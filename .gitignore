@@ -3,3 +3,12 @@
 /.vs
 /obj
 /bin/Debug
+/Business/bin
+/Business/obj
+/Models/bin
+/Models/obj
+/RectangleApp/.vs
+/RectangleApp/bin
+/RectangleApp/obj
+/UnitTests/bin
+/UnitTests/obj

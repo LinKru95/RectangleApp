@@ -1,3 +1,4 @@
+using Business.Interfaces;
 using RectangleApp.Business;
 
 namespace RectangleApp
@@ -17,7 +18,7 @@ namespace RectangleApp
                 });
             });
             builder.Services.AddControllers();
-            builder.Services.AddSingleton<RectangleValidator>();
+            builder.Services.AddSingleton<IRectangleValidator, RectangleValidator>();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 

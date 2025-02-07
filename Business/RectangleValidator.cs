@@ -1,16 +1,19 @@
-﻿using RectangleApp.Models;
+﻿using Business.Interfaces;
+using RectangleApp.Models;
 
 namespace RectangleApp.Business
 {
-    public class RectangleValidator
+    public class RectangleValidator : IRectangleValidator
     {
         private const int ValidationDelayMilliseconds = 10000;
+
+        protected virtual Task DelayAsync() => Task.Delay(ValidationDelayMilliseconds);
 
         public async Task<ValidationResult> ValidateAndDelayAsync(Rectangle rectangle)
         {
             var result = new ValidationResult();
 
-            await Task.Delay(ValidationDelayMilliseconds);
+            await DelayAsync();
 
             if (rectangle.Width <= 0 || rectangle.Height <= 0)
             {
