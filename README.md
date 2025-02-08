@@ -6,9 +6,6 @@ This is a simple backend web service for managing a rectangle's dimensions. It p
 - [Technologies Used](#technologies-used)
 - [Setup and Installation](#setup-and-installation)
 - [API Endpoints](#api-endpoints)
-- [Request and Response Examples](#request-and-response-examples)
-- [Error Handling](#error-handling)
-- [Future Enhancements](#future-enhancements)
 
 ## Technologies Used
 - **C#** (.NET Core Web API)
@@ -37,13 +34,13 @@ This is a simple backend web service for managing a rectangle's dimensions. It p
    Once the application starts, Visual Studio will open a browser window with the API running.
    The API will be available at: http://localhost:5000
 
-### API Endpoints
+## API Endpoints
 1. Get Rectangle Data
    - Endpoint: GET /api/rectangle
    - Description: Retrieves the current rectangle's dimensions.
    - Response Example:
        {
-         "width": 200,
+         "width": 100,
          "height": 150
        }
 2. Update Rectangle Dimensions
@@ -51,16 +48,6 @@ This is a simple backend web service for managing a rectangle's dimensions. It p
    - Description: Updates the rectangle's dimensions.
    - Request Body (JSON):
        {
-         "width": 250,
+         "width": 150,
          "height": 180
        }
-     *-
-   
-
-
-
-
-
-
-
-
